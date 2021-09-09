@@ -9,6 +9,7 @@
   "dependencies": {
     "@types/node": "^16.9.0",
     "ant-design-vue": "^2.2.7",
+    "pinia": "^2.0.0-rc.8",
     "vue": "^3.2.6",
     "vue-router": "^4.0.11"
   },

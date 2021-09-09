@@ -17,8 +17,8 @@ const router = createRouter({
     history: createWebHashHistory('/')
 })
 
-export const setupRouter = (Vue: App) => {
-    Vue.use(router)
+export const setupRouter = (app: App) => {
+    app.use(router)
 }
 
 export default router
