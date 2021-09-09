@@ -9,6 +9,7 @@ import { Button } from 'ant-design-vue'
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   <Button>测试按需导入</Button>
+  <router-view />
 </template>
 
 <style>
