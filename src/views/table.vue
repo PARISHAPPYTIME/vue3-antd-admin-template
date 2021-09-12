@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import CommonList from '@/components/commonList/inde.vue'
+    import CommonList from '@/components/commonList/inde.vue'
 </script>
 
 <template>

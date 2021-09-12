@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useCounterStore } from '@/store/countStore'
-const store = useCounterStore()
-const add = () => {
-    store.increment()
-}
+    import { useCounterStore } from '@/store/countStore'
+    const store = useCounterStore()
+    const add = () => {
+        store.increment()
+    }
 </script>
 
 <template>
