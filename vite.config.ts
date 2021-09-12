@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import styleImport from 'vite-plugin-style-import';
 import { resolve } from 'path'
 
@@ -11,6 +12,7 @@ function pathResolve(dir: string) {
 export default defineConfig({
   plugins: [
     vue(),
+    VueJsx(),
     styleImport({
       libs: [{
         libraryName: 'ant-design-vue',

@@ -20,7 +20,6 @@ export const permissionDirective: Directive = {
         } else {
             throw new Error(`need roles! Like v-permission="['admin','editor']"`)
         }
-        console.log(el.parentNode)
     },
     beforeUpdate() { },
     updated() { },

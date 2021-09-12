@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { Button } from 'ant-design-vue'
-import { ref, reactive, onBeforeUpdate, watchEffect } from 'vue'
+import {
+  ref, reactive, onBeforeUpdate,
+  watchEffect, resolveDirective,
+  resolveDynamicComponent
+} from 'vue'
+
 import HelloWorld from '@/components/HelloWorld.vue'
+import TestTeleport from '@/components/TestTeleport.vue'
+import TestH from '@/components/TestH.vue'
+import TestJsx from '@/components/TestJsx'
+import TestFunctional from '@/components/TestFunctional'
 
 const list = reactive([1, 2, 3])
 const divs = ref<any[]>([])
@@ -21,10 +30,17 @@ const root = ref(null)
 
 watchEffect(
   () => {
-    console.log(root.value) // => <div>This is a root element</div>
+    // console.log(root.value) // => <div>This is a root element</div>
   },
+  // 在组件渲染之后执行副作用函数
   { flush: 'post' }
 )
+
+// 解析指令
+const Permission = resolveDirective('permission')
+const Localhost = resolveDirective('localhost')
+// console.log(Permission)
+// console.log(Localhost)
 </script>
 
 <template>
@@ -34,7 +50,14 @@ watchEffect(
   <Button ref="root">测试按需导入</Button>
   <router-view />
   <HelloWorld msg="YOU AE OK?" @show-code="showCode" />
-  <div v-for="(item, i) in list" :ref="el => { if (el) { divs[i] = el } }">{{ item }}</div>
+  <TestTeleport></TestTeleport>
+  <TestH :level="1">can you speak1</TestH>
+  <TestH :level="3">can you speak3</TestH>
+  <TestH :level="5">can you speak5</TestH>
+  <TestJsx></TestJsx>
+  <test-functional label="h1">
+    <h1>1111</h1>
+  </test-functional>
 </template>
 
 <style>
