@@ -8,8 +8,8 @@ import { setupDirective } from '@/directive/index'
 async function bootstrap() {
     const app = createApp(App)
 
-    setupRouter(app)
     setupPinia(app)
+    setupRouter(app)
     setupDirective(app)
 
     await router.isReady()
