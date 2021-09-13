@@ -1,24 +1,20 @@
 import { RouteRecordRaw } from 'vue-router'
+import BaseLayout from '@/layout/index.vue'
 
 export const basicRouter: RouteRecordRaw[] = [
     {
         path: '/',
-        component: () => import('@/views/home.vue'),
-    },
-    {
-        path: '/login',
-        component: () => import('@/views/home.vue'),
-    },
-    {
-        path: '/home',
-        component: () => import('@/views/home.vue'),
-    },
-    {
-        path: '/about',
-        component: () => import('@/views/about.vue'),
-    },
-    {
-        path: '/table',
-        component: () => import('@/views/table.vue'),
+        redirect: '/home',
+        component: BaseLayout,
+        children: [
+            {
+                path: 'login',
+                component: () => import('@/views/home.vue'),
+            },
+            {
+                path: 'table',
+                component: () => import('@/views/table.vue'),
+            },
+        ],
     },
 ]
