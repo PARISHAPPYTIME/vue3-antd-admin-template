@@ -1,8 +1,7 @@
-import { } from 'vue'
 import type { Directive } from 'vue'
 import { isArray } from '@/utils/is'
 
-const value = ['18267094444']
+const whiteList = ['18267094444']
 
 export const permissionDirective: Directive = {
     created() { },
@@ -11,7 +10,7 @@ export const permissionDirective: Directive = {
         const { value } = binding
         if (value && isArray(value)) {
             const permissionRoles = value
-            const hasPermission = value.some(role => {
+            const hasPermission = whiteList.some(role => {
                 return permissionRoles.includes(role)
             })
             if (!hasPermission) {
